@@ -1,0 +1,192 @@
+<div class="container mt-5">
+  <h3>Create Policy</h3>
+  <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="schemeName">Scheme Name</label>
+      <input
+        type="text"
+        id="schemeName"
+        class="form-control"
+        formControlName="schemeName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="schemeNumber">Scheme Number</label>
+      <input
+        type="text"
+        id="schemeNumber"
+        class="form-control"
+        formControlName="schemeNumber"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="premium">Premium</label>
+      <input
+        type="number"
+        id="premium"
+        class="form-control"
+        formControlName="premium"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <input
+        type="text"
+        id="state"
+        class="form-control"
+        formControlName="state"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="effectiveDate">Effective Date</label>
+      <input
+        type="text"
+        id="effectiveDate"
+        class="form-control"
+        formControlName="effectiveDate"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="anniversary">Anniversary Date</label>
+      <input
+        type="date"
+        id="anniversary"
+        class="form-control"
+        formControlName="anniversary"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="businessSource">Business Source</label>
+      <input
+        type="text"
+        id="businessSource"
+        class="form-control"
+        formControlName="businessSource"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="taxId">Tax ID</label>
+      <input
+        type="text"
+        id="taxId"
+        class="form-control"
+        formControlName="taxId"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input
+        type="text"
+        id="county"
+        class="form-control"
+        formControlName="country"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="employerContractInfo">Employer Contract Info</label>
+      <input
+        type="text"
+        id="employerContractInfo"
+        class="form-control"
+        formControlName="employerContractInfo"
+      />
+    </div>
+
+    <!-- Address Section -->
+    <div class="form-group">
+      <label for="address1">Address Line 1</label>
+      <input
+        type="text"
+        id="address1"
+        class="form-control"
+        formControlName="address1"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address2">Address Line 2</label>
+      <input
+        type="text"
+        id="address2"
+        class="form-control"
+        formControlName="address2"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address3">Address Line 3</label>
+      <input
+        type="text"
+        id="address3"
+        class="form-control"
+        formControlName="address3"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        formControlName="city"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <input
+        type="text"
+        id="state"
+        class="form-control"
+        formControlName="state"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="zip">Zip</label>
+      <input type="text" id="zip" class="form-control" formControlName="zip" />
+    </div>
+
+    <div class="form-group">
+      <label for="employerPhone">Employer Phone</label>
+      <input
+        type="text"
+        id="employerPhone"
+        class="form-control"
+        formControlName="employerPhone"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="employerExt">Employer Extension</label>
+      <input
+        type="text"
+        id="employerExt"
+        class="form-control"
+        formControlName="employerExt"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="employerFax">Employer Fax</label>
+      <input
+        type="text"
+        id="employerFax"
+        class="form-control"
+        formControlName="employerFax"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Next</button>
+  </form>
+</div>

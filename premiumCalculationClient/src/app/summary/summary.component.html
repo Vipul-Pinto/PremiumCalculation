@@ -1,0 +1,83 @@
+<div class="container mt-5">
+  <h3>Policy Summary</h3>
+
+  <!-- Policy Details -->
+  <div class="card mb-3">
+    <div class="card-header bg-primary text-white">Policy Details</div>
+    <div class="card-body">
+      <p><strong>Scheme Name:</strong> {{ completePolicyData.schemeName }}</p>
+      <p>
+        <strong>Scheme Number:</strong> {{ completePolicyData.schemeNumber }}
+      </p>
+      <p><strong>Premium:</strong> {{ completePolicyData.premium }}</p>
+      <p><strong>State:</strong> {{ completePolicyData.state }}</p>
+      <p>
+        <strong>Effective Date:</strong> {{ completePolicyData.effectiveDate }}
+      </p>
+      <p>
+        <strong>Anniversary Date:</strong> {{ completePolicyData.anniversary }}
+      </p>
+      <p>
+        <strong>Business Source:</strong>
+        {{ completePolicyData.businessSource }}
+      </p>
+      <p><strong>Tax ID:</strong> {{ completePolicyData.taxId }}</p>
+      <p><strong>Country:</strong> {{ completePolicyData.country }}</p>
+    </div>
+  </div>
+
+  <!-- Employer Information -->
+  <div class="card mb-3">
+    <div class="card-header bg-secondary text-white">Employer Information</div>
+    <div class="card-body">
+      <p>
+        <strong>Employer Contract Info:</strong>
+        {{ completePolicyData.employerContractInfo }}
+      </p>
+      <p>
+        <strong>Employer Phone:</strong> {{ completePolicyData.employerPhone }}
+      </p>
+      <p>
+        <strong>Employer Extension:</strong>
+        {{ completePolicyData.employerExt }}
+      </p>
+      <p><strong>Employer Fax:</strong> {{ completePolicyData.employerFax }}</p>
+    </div>
+  </div>
+
+  <!-- Address Details -->
+  <div class="card mb-3">
+    <div class="card-header bg-info text-white">Address Details</div>
+    <div class="card-body">
+      <p><strong>Address Line 1:</strong> {{ completePolicyData.address1 }}</p>
+      <p><strong>Address Line 2:</strong> {{ completePolicyData.address2 }}</p>
+      <p><strong>Address Line 3:</strong> {{ completePolicyData.address3 }}</p>
+      <p><strong>City:</strong> {{ completePolicyData.city }}</p>
+      <p><strong>Zip:</strong> {{ completePolicyData.zip }}</p>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="card mb-3">
+    <div class="card-header bg-success text-white">Categories</div>
+    <div class="card-body">
+      <div
+        *ngFor="let category of completePolicyData.categories; let i = index"
+      >
+        <h5>Category {{ i + 1 }}</h5>
+        <p><strong>Category Name:</strong> {{ category.categoryName }}</p>
+        <p><strong>Male Count:</strong> {{ category.maleNumber }}</p>
+        <p><strong>Female Count:</strong> {{ category.femaleNumber }}</p>
+        <hr />
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary my-2" (click)="calculatePremium()">
+    Calculate Premium
+  </button>
+
+  <!-- Display Calculated Premium -->
+  <div *ngIf="calculatedPremium !== null" class="mt-3">
+    <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
+  </div>
+</div>

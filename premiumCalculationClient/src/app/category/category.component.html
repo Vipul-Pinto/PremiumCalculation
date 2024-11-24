@@ -1,0 +1,97 @@
+<div class="container mt-5">
+  <h3>Add Category</h3>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="container mt-5">
+      <div class="row m-2">
+        <div class="col bg-primary bg-primary text-center py-2 text-white mx-1">
+          <label>Age</label>
+        </div>
+        <div class="col bg-primary bg-primary text-center py-2 text-white mx-1">
+          <label>Male Count</label>
+        </div>
+        <div class="col bg-primary text-center py-2 text-white mx-1">
+          <label>Female Count</label>
+        </div>
+      </div>
+      <div class="row m-2">
+        <div class="col bg-primary text-center py-2 text-white mx-1">
+          <div class="form-group"><label>10-25</label></div>
+        </div>
+        <div class="col mx-1">
+          <div class="form-group">
+            <input
+              type="text"
+              id="maleNumber1"
+              class="form-control"
+              formControlName="maleNumber1"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <input
+              type="text"
+              id="femaleNumber1"
+              class="form-control"
+              formControlName="femaleNumber1"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row m-2">
+        <div class="col bg-primary text-center py-2 text-white mx-1">
+          <div class="form-group"><label>26-50</label></div>
+        </div>
+        <div class="col mx-1">
+          <div class="form-group">
+            <input
+              type="text"
+              id="maleNumber2"
+              class="form-control"
+              formControlName="maleNumber2"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <input
+              type="text"
+              id="femaleNumber2"
+              class="form-control"
+              formControlName="femaleNumber2"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row m-2">
+        <div class="col bg-primary text-center py-2 text-white mx-1">
+          <div class="form-group"><label>50-100</label></div>
+        </div>
+        <div class="col mx-1">
+          <div class="form-group">
+            <input
+              type="text"
+              id="maleNumber3"
+              class="form-control"
+              formControlName="maleNumber3"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <input
+              type="text"
+              id="femaleNumber3"
+              class="form-control"
+              formControlName="femaleNumber3"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
+      <button type="submit" class="btn btn-primary">Next</button>
+    </div>
+  </form>
+</div>
