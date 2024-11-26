@@ -9,7 +9,7 @@ import { interval } from 'rxjs';
   templateUrl: './policy.component.html',
   styleUrls: ['./policy.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule, NgClass, NgIf],
 })
 export class PolicyComponent implements OnInit {
   policyForm!: FormGroup;
@@ -40,21 +40,23 @@ export class PolicyComponent implements OnInit {
       employerFax: ['']
     });
 
-   
     this.policyData = history.state.policyData;
     if (this.policyData) {
       this.policyForm.patchValue(this.policyData);
     }
     this.categoryData = history.state.categoryData;
 
-    
     interval(30000).subscribe(() => {
       this.autoSave();
     });
   }
 
+  isInvalid(controlName: string): boolean {
+    const control = this.policyForm.get(controlName);
+    return !!control && control.invalid && (control.dirty || control.touched);
+  }
+
   onSubmit(): void {
-    console.log(this.policyForm.valid);
     if (this.policyForm.valid) {
       this.router.navigate(['/category'], {
         state: {
@@ -63,12 +65,23 @@ export class PolicyComponent implements OnInit {
         },
       });
     } else {
-      this.policyForm.markAllAsTouched(); 
+      this.policyForm.markAllAsTouched();
+
+      const invalidFields: string[] = [];
+      Object.keys(this.policyForm.controls).forEach((field) => {
+        const control = this.policyForm.get(field);
+        if (control?.invalid) {
+          invalidFields.push(field);
+        }
+      });
+
+      if (invalidFields.length > 0) {
+        alert(`Please correct the following fields: ${invalidFields.join(', ')}`);
+      }
     }
   }
 
   autoSave(): void {
-    // Implement the auto-save functionality (e.g., save to localStorage)
     localStorage.setItem('policyData', JSON.stringify(this.policyForm.value));
     console.log('Form data auto-saved');
   }

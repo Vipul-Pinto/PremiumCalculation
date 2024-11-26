@@ -1,108 +1,119 @@
-
 <div class="container mt-5 animate-container">
   <h3 class="text-center mb-4">Create Policy</h3>
   <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
-    <!-- Scheme Section -->
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-6">
-        <label for="schemeName">Scheme Name</label>
-        <input type="text" id="schemeName" class="form-control" formControlName="schemeName" data-toggle="tooltip" data-placement="top" title="Enter the name of the scheme" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('schemeName')}">
+        <label for="schemeName">Scheme Name <span class="required">*</span></label>
+        <input type="text" id="schemeName" class="form-control" formControlName="schemeName" placeholder="Enter Scheme Name" />
+        <div *ngIf="isInvalid('schemeName')" class="error-message">This field is required.</div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="schemeNumber">Scheme Number</label>
-        <input type="text" id="schemeNumber" class="form-control" formControlName="schemeNumber" data-toggle="tooltip" data-placement="top" title="Enter the number of the scheme" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('schemeNumber')}">
+        <label for="schemeNumber">Scheme Number <span class="required">*</span></label>
+        <input type="text" id="schemeNumber" class="form-control" formControlName="schemeNumber" placeholder="Enter Scheme Number" />
+        <div *ngIf="isInvalid('schemeNumber')" class="error-message">This field is required.</div>
       </div>
     </div>
+
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-6">
-        <label for="premium">Premium</label>
-        <input type="number" id="premium" class="form-control" formControlName="premium" data-toggle="tooltip" data-placement="top" title="Enter the premium amount" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('Premium')}">
+        <label for="premium">Premium Number <span class="required">*</span></label>
+        <input type="number" id="premium" class="form-control" formControlName="premium" placeholder="Enter Premium Amount" />
+        <div *ngIf="isInvalid('premium')" class="error-message">This field is required and must be a valid number.</div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="state">State</label>
-        <input type="text" id="state" class="form-control" formControlName="state" data-toggle="tooltip" data-placement="top" title="Enter the state" />
+      
+    </div>
+
+    
+    <div class="form-row animate-section">
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('effectiveDate')}">
+        <label for="effectiveDate">Effective Date <span class="required">*</span></label>
+        <input type="text" id="effectiveDate" class="form-control" formControlName="effectiveDate" placeholder="Enter Effective Date" />
+        <div *ngIf="isInvalid('effectiveDate')" class="error-message">This field is required.</div>
+      </div>
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('anniversary')}">
+        <label for="anniversary">Anniversary Date <span class="required">*</span></label>
+        <input type="date" id="anniversary" class="form-control" formControlName="anniversary" placeholder="Enter Anniversary Date" />
+        <div *ngIf="isInvalid('anniversary')" class="error-message">This field is required.</div>
       </div>
     </div>
-    <!-- Dates Section -->
+
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-6">
-        <label for="effectiveDate">Effective Date</label>
-        <input type="text" id="effectiveDate" class="form-control" formControlName="effectiveDate" data-toggle="tooltip" data-placement="top" title="Enter the effective date" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('businessSource')}">
+        <label for="businessSource">Business Source <span class="required">*</span></label>
+        <input type="text" id="businessSource" class="form-control" formControlName="businessSource" placeholder="Enter Business Source" />
+        <div *ngIf="isInvalid('businessSource')" class="error-message">This field is required.</div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="anniversary">Anniversary Date</label>
-        <input type="date" id="anniversary" class="form-control" formControlName="anniversary" data-toggle="tooltip" data-placement="top" title="Enter the anniversary date" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('taxId')}">
+        <label for="taxId">Tax ID <span class="required">*</span></label>
+        <input type="text" id="taxId" class="form-control" formControlName="taxId" placeholder="Enter Tax ID" />
+        <div *ngIf="isInvalid('taxId')" class="error-message">This field is required.</div>
       </div>
     </div>
-    <!-- Business Section -->
+
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-6">
-        <label for="businessSource">Business Source</label>
-        <input type="text" id="businessSource" class="form-control" formControlName="businessSource" data-toggle="tooltip" data-placement="top" title="Enter the business source" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('country')}">
+        <label for="country">Country <span class="required">*</span></label>
+        <input type="text" id="country" class="form-control" formControlName="country" placeholder="Enter Country" />
+        <div *ngIf="isInvalid('country')" class="error-message">This field is required.</div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="taxId">Tax ID</label>
-        <input type="text" id="taxId" class="form-control" formControlName="taxId" data-toggle="tooltip" data-placement="top" title="Enter the tax ID" />
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('employerContractInfo')}">
+        <label for="employerContractInfo">Employer Contract Info <span class="required">*</span></label>
+        <input type="text" id="employerContractInfo" class="form-control" formControlName="employerContractInfo" placeholder="Enter Employer Contract Info" />
+        <div *ngIf="isInvalid('employerContractInfo')" class="error-message">This field is required.</div>
       </div>
     </div>
+
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-6">
-        <label for="country">Country</label>
-        <input type="text" id="country" class="form-control" formControlName="country" data-toggle="tooltip" data-placement="top" title="Enter the country" />
-      </div>
-      <div class="form-group col-md-6">
-        <label for="employerContractInfo">Employer Contract Info</label>
-        <input type="text" id="employerContractInfo" class="form-control" formControlName="employerContractInfo" data-toggle="tooltip" data-placement="top" title="Enter the employer contract info" />
-      </div>
-    </div>
-    <!-- Address Section -->
-    <div class="form-row animate-section">
-      <div class="form-group col-md-4">
-        <label for="address1">Address Line 1</label>
-        <input type="text" id="address1" class="form-control" formControlName="address1" data-toggle="tooltip" data-placement="top" title="Enter address line 1" />
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('address1')}">
+        <label for="address1">Address Line 1 <span class="required">*</span></label>
+        <input type="text" id="address1" class="form-control" formControlName="address1" placeholder="Enter Address Line 1" />
+        <div *ngIf="isInvalid('address1')" class="error-message">This field is required.</div>
       </div>
       <div class="form-group col-md-4">
         <label for="address2">Address Line 2</label>
-        <input type="text" id="address2" class="form-control" formControlName="address2" data-toggle="tooltip" data-placement="top" title="Enter address line 2" />
+        <input type="text" id="address2" class="form-control" formControlName="address2" placeholder="Enter Address Line 2" />
       </div>
       <div class="form-group col-md-4">
         <label for="address3">Address Line 3</label>
-        <input type="text" id="address3" class="form-control" formControlName="address3" data-toggle="tooltip" data-placement="top" title="Enter address line 3" />
+        <input type="text" id="address3" class="form-control" formControlName="address3" placeholder="Enter Address Line 3" />
       </div>
     </div>
-    <!-- Contact Section -->
+
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-4">
-        <label for="city">City</label>
-        <input type="text" id="city" class="form-control" formControlName="city" data-toggle="tooltip" data-placement="top" title="Enter the city" />
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('city')}">
+        <label for="city">City <span class="required">*</span></label>
+        <input type="text" id="city" class="form-control" formControlName="city" placeholder="Enter City" />
+        <div *ngIf="isInvalid('city')" class="error-message">This field is required.</div>
       </div>
-      <div class="form-group col-md-4">
-        <label for="state">State</label>
-        <input type="text" id="state" class="form-control" formControlName="state" data-toggle="tooltip" data-placement="top" title="Enter the state" />
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('zip')}">
+        <label for="zip">Zip <span class="required">*</span></label>
+        <input type="text" id="zip" class="form-control" formControlName="zip" placeholder="Enter Zip Code" />
+        <div *ngIf="isInvalid('zip')" class="error-message">This field is required.</div>
       </div>
-      <div class="form-group col-md-4">
-        <label for="zip">Zip</label>
-        <input type="text" id="zip" class="form-control" formControlName="zip" data-toggle="tooltip" data-placement="top" title="Enter the zip code" />
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('employerPhone')}">
+        <label for="employerPhone">Employer Phone <span class="required">*</span></label>
+        <input type="text" id="employerPhone" class="form-control" formControlName="employerPhone" placeholder="Enter Employer Phone" />
+        <div *ngIf="isInvalid('employerPhone')" class="error-message">This field is required.</div>
       </div>
     </div>
+
+    
     <div class="form-row animate-section">
-      <div class="form-group col-md-4">
-        <label for="employerPhone">Employer Phone</label>
-        <input type="text" id="employerPhone" class="form-control" formControlName="employerPhone" data-toggle="tooltip" data-placement="top" title="Enter the employer's phone number" />
-      </div>
       <div class="form-group col-md-4">
         <label for="employerExt">Employer Extension</label>
-        <input type="text" id="employerExt" class="form-control" formControlName="employerExt" data-toggle="tooltip" data-placement="top" title="Enter the employer's extension" />
+        <input type="text" id="employerExt" class="form-control" formControlName="employerExt" placeholder="Enter Employer Extension" />
       </div>
       <div class="form-group col-md-4">
         <label for="employerFax">Employer Fax</label>
-        <input type="text" id="employerFax" class="form-control" formControlName="employerFax" data-toggle="tooltip" data-placement="top" title="Enter the employer's fax number" />
+        <input type="text" id="employerFax" class="form-control" formControlName="employerFax" placeholder="Enter Employer Fax" />
       </div>
     </div>
+
     <button type="submit" class="btn btn-primary mt-2 next-button">Next</button>
   </form>
-</div>
-
-
-
-
