@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <h3>Add Category</h3>
   <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
     <div class="container mt-5">
@@ -94,4 +94,94 @@
       <button type="submit" class="btn btn-primary">Next</button>
     </div>
   </form>
+</div> -->
+<div class="category-container p-4">
+  <h2 class="text-center mb-4">Add Category</h2>
+
+  <div class="card mt-3">
+      <div class="card-body">
+          <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered text-center">
+                  <thead class="bg-primary text-white">
+                      <tr>
+                          <th><span class="w-100 btn btn-primary">Age</span></th>
+                          <th><span class="w-100 btn btn-primary">Male Count</span></th>
+                          <th><span class="w-100 btn btn-primary">Female Count</span></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td><span class="w-100 btn btn-primary">10-25</span></td>
+                          <td>
+                              <input
+                                  type="number"
+                                  id="maleNumber1"
+                                  class="form-control"
+                                  formControlName="maleNumber1"
+                                  required
+                              />
+                          </td>
+                          <td>
+                              <input
+                                  type="number"
+                                  id="femaleNumber1"
+                                  class="form-control"
+                                  formControlName="femaleNumber1"
+                                  required
+                              />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><span class="w-100 btn btn-primary">26-50</span></td>
+                          <td>
+                              <input
+                                  type="number"
+                                  id="maleNumber2"
+                                  class="form-control"
+                                  formControlName="maleNumber2"
+                                  required
+                              />
+                          </td>
+                          <td>
+                              <input
+                                  type="number"
+                                  id="femaleNumber2"
+                                  class="form-control"
+                                  formControlName="femaleNumber2"
+                                  required
+                              />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><span class="w-100 btn btn-primary">50-100</span></td>
+                          <td>
+                              <input
+                                  type="number"
+                                  id="maleNumber3"
+                                  class="form-control"
+                                  formControlName="maleNumber3"
+                                  required
+                              />
+                          </td>
+                          <td>
+                              <input
+                                  type="number"
+                                  id="femaleNumber3"
+                                  class="form-control"
+                                  formControlName="femaleNumber3"
+                                  required
+                              />
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+
+              <div class="text-center mt-4">
+                  <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
+                  <button type="submit" class="btn btn-primary">Next</button>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>
+
