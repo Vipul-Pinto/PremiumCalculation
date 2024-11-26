@@ -1,21 +1,36 @@
+
 <div class="container mt-5">
-  <!-- Navbar -->
   <ul class="nav nav-tabs" id="formTabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="">Policy Info</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/']">
+        <i class="fas fa-file-alt"></i> Policy Info
+      </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/category">Category Infor</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/category']">
+        <i class="fas fa-tags"></i> Category Info
+      </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/summary">Summary</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/summary']">
+        <i class="fas fa-clipboard-list"></i> Summary
+      </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/rates">Rates</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/rates']">
+        <i class="fas fa-dollar-sign"></i> Rates
+      </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/discount">Discount</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/discount']">
+        <i class="fas fa-percent"></i> Discount
+      </a>
     </li>
   </ul>
+
+ 
+
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+
+
