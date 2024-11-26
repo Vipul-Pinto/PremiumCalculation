@@ -75,9 +75,7 @@ export class PolicyComponent implements OnInit {
         }
       });
 
-      if (invalidFields.length > 0) {
-        alert(`Please correct the following fields: ${invalidFields.join(', ')}`);
-      }
+     
     }
   }
 
