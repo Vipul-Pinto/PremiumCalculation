@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@NamedQuery(name="getCategoryByScheme",query="FROM CategoriesEntity c WHERE c.pcPolicies.schemeNumber =: schemeNumber")
 public class CategoriesEntity {
 
     @Id
