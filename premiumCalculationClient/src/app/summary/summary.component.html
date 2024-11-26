@@ -72,16 +72,16 @@
       </div>
     </div>
   </div>
-
-  <!-- Display Calculated Premium -->
-  <div *ngIf="calculatedPremium !== ''" class="mt-3">
-    <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
-  </div>
-
-  <button
-    class="btn btn-primary my-2"
-    (click)="calculatePremium(this.completePolicyData.schemeNumber)"
-  >
+  <button class="btn btn-primary my-2" (click)="calculatePremium()">
     Calculate Premium
   </button>
+
+  <!-- Display Calculated Premium -->
+  <div *ngIf="calculatedPremium !== null" class="mt-3">
+    <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
+  </div>
+  <div class="text-center mt-4">
+    <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
+  <button type="submit" class="btn btn-primary" (click)="goNext()">Next</button>
+</div>
 </div>

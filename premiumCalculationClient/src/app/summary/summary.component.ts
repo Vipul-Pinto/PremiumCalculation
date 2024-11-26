@@ -2,6 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -11,12 +12,17 @@ import { environment } from '../../environments/environment';
 })
 export class SummaryComponent implements OnInit {
   completePolicyData: any;
-  calculatedPremium: string;
+  calculatedPremium: any | null = null;
   rates: any;
 
-  constructor(private http: HttpClient) {
-    this.calculatedPremium = '';
-  }
+  // constructor(private http: HttpClient) {
+    
+  // }
+  constructor(
+    private router: Router,
+    //private fb: FormBuilder,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.completePolicyData = history.state.policyData;
@@ -25,12 +31,25 @@ export class SummaryComponent implements OnInit {
       .subscribe((res) => console.log(res));
   }
 
-  calculatePremium(schemeNumber: any) {
-    this.http
-      .get(`${environment.apiUrl}/summary/${schemeNumber}`)
-      .subscribe((res) => {
-        this.calculatedPremium = res.toString();
-        console.log(typeof this.calculatedPremium);
-      });
+  calculatePremium() {
+    
   }
+  goBack() {
+    this.router.navigate(['/category'], {
+      state: {
+       // policyData: this.policyData,
+        // categoryData: this.categoryForm.value,
+      },
+    });
+  }
+  goNext() {
+    this.router.navigate(['/rates'], {
+      state: {
+       // policyData: this.policyData,
+        // categoryData: this.categoryForm.value,
+      },
+    });
+  }
+
+  
 }
