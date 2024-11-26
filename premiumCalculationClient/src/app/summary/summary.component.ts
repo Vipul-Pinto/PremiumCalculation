@@ -11,10 +11,12 @@ import { environment } from '../../environments/environment';
 })
 export class SummaryComponent implements OnInit {
   completePolicyData: any;
-  calculatedPremium: any | null = null;
+  calculatedPremium: string;
   rates: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.calculatedPremium = '';
+  }
 
   ngOnInit(): void {
     this.completePolicyData = history.state.policyData;
@@ -23,7 +25,12 @@ export class SummaryComponent implements OnInit {
       .subscribe((res) => console.log(res));
   }
 
-  calculatePremium() {
-    
+  calculatePremium(schemeNumber: any) {
+    this.http
+      .get(`${environment.apiUrl}/summary/${schemeNumber}`)
+      .subscribe((res) => {
+        this.calculatedPremium = res.toString();
+        console.log(typeof this.calculatedPremium);
+      });
   }
 }

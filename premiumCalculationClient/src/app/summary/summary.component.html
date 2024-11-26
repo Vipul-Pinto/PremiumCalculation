@@ -72,12 +72,16 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary my-2" (click)="calculatePremium()">
-    Calculate Premium
-  </button>
 
   <!-- Display Calculated Premium -->
-  <div *ngIf="calculatedPremium !== null" class="mt-3">
+  <div *ngIf="calculatedPremium !== ''" class="mt-3">
     <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
   </div>
+
+  <button
+    class="btn btn-primary my-2"
+    (click)="calculatePremium(this.completePolicyData.schemeNumber)"
+  >
+    Calculate Premium
+  </button>
 </div>
