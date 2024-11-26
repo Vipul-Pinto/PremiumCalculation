@@ -1,1 +1,45 @@
-<p>discount works!</p>
+<div class="discounts-container p-4">
+    <h2 class="text-center mb-4">Discounts</h2>
+    <div class="card mt-3">
+      <div class="card-body">
+        <form (ngSubmit)="updateDiscounts()" #discountForm="ngForm">
+          <table class="table table-bordered text-center">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th><span class="w-100 btn btn-primary">Slab</span></th>
+                <th><span class="w-100 btn btn-primary">Male Count</span></th>
+                <th><span class="w-100 btn btn-primary">Female Count</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let slab of slabs; let i = index">
+                <td><span class="w-100 btn btn-primary">{{ slab.label }}</span></td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="slab.maleCount"
+                    name="maleCount{{ i }}"
+                    class="form-control"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="slab.femaleCount"
+                    name="femaleCount{{ i }}"
+                    class="form-control"
+                    required
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
