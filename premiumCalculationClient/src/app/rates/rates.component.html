@@ -1,1 +1,47 @@
-<p>rates works!</p>
+<div class="rates-container p-4">
+    <h2 class="text-center mb-4">Rates</h2>
+
+    <div class="card mt-3">
+      <div class="card-body">
+        <form (ngSubmit)="updateRates()" #ratesForm="ngForm">
+          <table class="table table-bordered text-center">
+            <thead class="bg-primary text-white">
+                <tr>
+                  <th><span class="w-100 btn btn-primary">Ages</span></th>
+                  <th><span class="w-100 btn btn-primary">Male Rate</span></th>
+                  <th><span class="w-100 btn btn-primary">Female Rate</span></th>
+                </tr>
+              </thead>
+            <tbody>
+              <tr *ngFor="let age of ages; let i = index">
+                <td><span class="w-100 btn btn-primary">{{ age.label }}</span></td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="age.maleRate"
+                    name="maleRate{{ i }}"
+                    class="form-control"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="age.femaleRate"
+                    name="femaleRate{{ i }}"
+                    class="form-control"
+                    required
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
