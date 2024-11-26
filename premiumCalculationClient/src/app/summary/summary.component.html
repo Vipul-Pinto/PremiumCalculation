@@ -1,7 +1,7 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <h3>Policy Summary</h3>
 
-  <!-- Policy Details -->
+  <
   <div class="card mb-3">
     <div class="card-header bg-primary text-white">Policy Details</div>
     <div class="card-body">
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <!-- Employer Information -->
+  
   <div class="card mb-3">
     <div class="card-header bg-secondary text-white">Employer Information</div>
     <div class="card-body">
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <!-- Address Details -->
+  
   <div class="card mb-3">
     <div class="card-header bg-info text-white">Address Details</div>
     <div class="card-body">
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <!-- Categories -->
+  
   <div class="card mb-3">
     <div class="card-header bg-success text-white">Categories</div>
     <div class="card-body">
@@ -74,12 +74,102 @@
     Calculate Premium
   </button>
 
-  <!-- Display Calculated Premium -->
+  
   <div *ngIf="calculatedPremium !== null" class="mt-3">
     <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
   </div>
   <div class="text-center mt-4">
-    <!-- <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
-  <button type="submit" class="btn btn-primary" (click)="goNext()">Next</button> -->
+    <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
+  <button type="submit" class="btn btn-primary" (click)="goNext()">Next</button>
   </div>
+</div> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<div class="container mt-5">
+  <h3>Policy Summary</h3>
+ 
+  <div id="accordion">
+   
+    <div class="card mb-3">
+      <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#policyDetails" aria-expanded="true" aria-controls="policyDetails" data-bs-parent="#accordion">
+        <span>Policy Details</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div id="policyDetails" class="collapse show">
+        <div class="card-body">
+          <p><strong>Scheme Name:</strong> {{ completePolicyData.schemeName }}</p>
+          <p><strong>Scheme Number:</strong> {{ completePolicyData.schemeNumber }}</p>
+          <p><strong>Premium:</strong> {{ completePolicyData.premium }}</p>
+          <p><strong>State:</strong> {{ completePolicyData.state }}</p>
+          <p><strong>Effective Date:</strong> {{ completePolicyData.effectiveDate }}</p>
+          <p><strong>Anniversary Date:</strong> {{ completePolicyData.anniversary }}</p>
+          <p><strong>Business Source:</strong> {{ completePolicyData.businessSource }}</p>
+          <p><strong>Tax ID:</strong> {{ completePolicyData.taxId }}</p>
+          <p><strong>Country:</strong> {{ completePolicyData.country }}</p>
+        </div>
+      </div>
+    </div>
+ 
+   
+    <div class="card mb-3">
+      <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#employerInfo" aria-expanded="false" aria-controls="employerInfo" data-bs-parent="#accordion">
+        <span>Employer Information</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div id="employerInfo" class="collapse">
+        <div class="card-body">
+          <p><strong>Employer Contract Info:</strong> {{ completePolicyData.employerContractInfo }}</p>
+          <p><strong>Employer Phone:</strong> {{ completePolicyData.employerPhone }}</p>
+          <p><strong>Employer Extension:</strong> {{ completePolicyData.employerExt }}</p>
+          <p><strong>Employer Fax:</strong> {{ completePolicyData.employerFax }}</p>
+        </div>
+      </div>
+    </div>
+ 
+   
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#addressDetails" aria-expanded="false" aria-controls="addressDetails" data-bs-parent="#accordion">
+        <span>Address Details</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div id="addressDetails" class="collapse">
+        <div class="card-body">
+          <p><strong>Address Line 1:</strong> {{ completePolicyData.address1 }}</p>
+          <p><strong>Address Line 2:</strong> {{ completePolicyData.address2 }}</p>
+          <p><strong>Address Line 3:</strong> {{ completePolicyData.address3 }}</p>
+          <p><strong>City:</strong> {{ completePolicyData.city }}</p>
+          <p><strong>Zip:</strong> {{ completePolicyData.zip }}</p>
+        </div>
+      </div>
+    </div>
+ 
+   
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#categories" aria-expanded="false" aria-controls="categories" data-bs-parent="#accordion">
+        <span>Categories</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div id="categories" class="collapse">
+        <div class="card-body">
+          <div *ngFor="let category of completePolicyData.categories; let i = index">
+            <h5>Category {{ i + 1 }}</h5>
+            <p><strong>Category Name:</strong> {{ category.categoryName }}</p>
+            <p><strong>Male Count:</strong> {{ category.maleNumber }}</p>
+            <p><strong>Female Count:</strong> {{ category.femaleNumber }}</p>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+ 
+  <div *ngIf="calculatedPremium !== ''" class="mt-3">
+    <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
+  </div>
+ 
+  <button class="btn btn-primary my-2" (click)="calculatePremium(completePolicyData.schemeNumber)">
+    Calculate Premium
+  </button>
 </div>
+ 
