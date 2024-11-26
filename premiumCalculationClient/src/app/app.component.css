@@ -1,35 +1,4 @@
- /* .nav-link {
-   margin-left: 30px;
-   
-   box-shadow:30px;
-   border-radius: 15px;
-   transition: background-color 0.99s;
-}
 
-  
-.nav-link:hover {
-    background-color: orange;
-  }
-
-  .nav-link.active {
-    font-weight: bold;
-    background-color: orange !important;
-  }  */
-   /* .nav-link {
-    margin-left: 30px;
-    
-    border-radius: 15px;
-    transition: background-color 0.95s;
-  }
-  
-  .nav-link:hover {
-    background-color: orange;
-  }
-  
-  .nav-link.active {
-    font-weight: bold;
-    background-color: orange !important;
-  } */
   body {
     font-family: Arial, sans-serif;
 }
