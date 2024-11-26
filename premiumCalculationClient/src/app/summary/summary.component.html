@@ -61,9 +61,7 @@
   <div class="card mb-3">
     <div class="card-header bg-success text-white">Categories</div>
     <div class="card-body">
-      <div
-        *ngFor="let category of completePolicyData.categories; let i = index"
-      >
+      <div *ngFor="let category of completePolicyData.categories; let i = index">
         <h5>Category {{ i + 1 }}</h5>
         <p><strong>Category Name:</strong> {{ category.categoryName }}</p>
         <p><strong>Male Count:</strong> {{ category.maleNumber }}</p>
@@ -72,7 +70,7 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary my-2" (click)="calculatePremium()">
+  <button class="btn btn-primary my-2" (click)="calculatePremium(completePolicyData.schemeNumber)">
     Calculate Premium
   </button>
 
@@ -81,7 +79,7 @@
     <p><strong>Calculated Premium:</strong> {{ calculatedPremium }}</p>
   </div>
   <div class="text-center mt-4">
-    <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
-  <button type="submit" class="btn btn-primary" (click)="goNext()">Next</button>
-</div>
+    <!-- <button class="btn btn-primary mx-1" (click)="goBack()">Back</button>
+  <button type="submit" class="btn btn-primary" (click)="goNext()">Next</button> -->
+  </div>
 </div>
